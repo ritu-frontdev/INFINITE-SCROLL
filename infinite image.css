@@ -1,0 +1,36 @@
+body{
+    background-image:linear-gradient(to right, coral, yellow);
+}
+.loader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background:plum
+    url("https://c.tenor.com/zecVkmevzcIAAAAM/please-wait.gif") no-repeat center;
+    z-index: 1000;
+
+    
+
+    
+}
+#container{
+display: flex;
+width: 30%;
+height: 5%;
+flex-wrap: wrap;
+padding:40px;
+margin-left: 30%;
+}
+
+img {
+    margin: 15px 10px;
+
+}
+h1{
+    text-align: center;
+    font-style: italic;
+    font-family: cursive;
+}
+
+
+
