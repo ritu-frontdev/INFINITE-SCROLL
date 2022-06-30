@@ -1,5 +1,5 @@
 var container = document.getElementById("container")
-const url = "https://api.unsplash.com/photos/random/?client_id=${secrets.API_KEY2}&count=10&query=cartoons"
+const url = "https://api.unsplash.com/photos/random/?client_id=${{secrets.API_KEY2}}&count=10&query=cartoons"
 function getdata(){
     fetch(url).then(response=>response.json()).then(data=>{
         //console.log(data);
