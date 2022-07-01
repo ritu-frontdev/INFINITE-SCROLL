@@ -25,4 +25,5 @@ jobs:
         with: # Set the secret as an input
           API_KEY2: ${{ secrets.API_KEY2 }}
         env: # Or as an environment variable
-          super_secret: ${{ secrets.API_KEY2 }}
+          CI: true
+          API_KEY2: ${{ secrets.API_KEY2 }}
