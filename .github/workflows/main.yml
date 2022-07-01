@@ -19,10 +19,30 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
-    # The Secrect Actions GitHub example has three steps
-    steps:     
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Show how to print unmasked GitHub secrets to the console
+      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
+        run: |
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.API_KEY2}}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{secrets.API_KEY2}} | sed 's/./& /g' 
+          
       # Use a GitHub Actions secret variable in a bash shell
       - name: Step 2 - GitHub Action if statement (true)
         env: 
-          key: ${{ secrets.API_KEY2 }}
+          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+        if:  env.WHO_TO_TRUST == 'TrustNo1'
+        run: echo "I know what the secret token is!"
+
+      # A GitHub Actions if statement with a secret environment variable
+      - name: Step 3 - Conditional GitHub Action (false)
+        shell: bash
+        env: 
+          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+        if:  env.WHO_TO_TRUST != 'TrustNobody'
+        run: echo "I was wrong thinking the GitHub secret was 'TrustNobody'!"
+
+
