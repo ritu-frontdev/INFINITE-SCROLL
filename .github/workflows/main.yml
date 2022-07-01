@@ -33,7 +33,7 @@ jobs:
       # Use a GitHub Actions secret variable in a bash shell
       - name: Step 2 - GitHub Action if statement (true)
         env: 
-          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+          WHO_TO_TRUST: ${{ secrets.API_KEY2 }}
         if:  env.WHO_TO_TRUST == 'TrustNo1'
         run: echo "I know what the secret token is!"
 
@@ -41,7 +41,7 @@ jobs:
       - name: Step 3 - Conditional GitHub Action (false)
         shell: bash
         env: 
-          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+          WHO_TO_TRUST: ${{ secrets.API_KEY2 }}
         if:  env.WHO_TO_TRUST != 'TrustNobody'
         run: echo "I was wrong thinking the GitHub secret was 'TrustNobody'!"
 
